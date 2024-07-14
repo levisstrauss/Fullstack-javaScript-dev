@@ -1,28 +1,28 @@
-import arrays from './utilities/arrays.js';
-import numbers from './utilities/numbers.js';
-import strings from './utilities/strings.js';
-import myFunc from './utilities/myFunc.js';
+// import arrays from './utilities/arrays.js';
+// import numbers from './utilities/numbers.js';
+// import strings from './utilities/strings.js';
+// import myFunc from './utilities/myFunc.js';
 
-const numArr = [3, 4, 5, 6];
-const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
-const arrSum = arrays.addArr(numArr);
-const mixArr = arrays.concatArr(numArr, wordArr);
-const myNum = ('15' as unknown) as number % 2;
-const five = parseInt('5');
-
-
-// The only one function that I have inside of main
-const newArr = (num: number, arr:(string | number)[]): (string | number)[] => {
-    return [num, ...arr];
-}
+// const numArr = [3, 4, 5, 6];
+// const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
+// const arrSum = arrays.addArr(numArr);
+// const mixArr = arrays.concatArr(numArr, wordArr);
+// const myNum = ('15' as unknown) as number % 2;
+// const five = parseInt('5');
 
 
-console.log(arrays.cut3(mixArr));
-console.log(numbers.sum(arrSum, myNum));
-console.log(strings.capitalize('the quick brown fox'));
-console.log(numbers.multiply(five, 8));
-console.log(arrays.lgNum(mixArr));
-console.log(myFunc(5))
+// // The only one function that I have inside of main
+// const newArr = (num: number, arr:(string | number)[]): (string | number)[] => {
+//     return [num, ...arr];
+// }
+
+
+// console.log(arrays.cut3(mixArr));
+// console.log(numbers.sum(arrSum, myNum));
+// console.log(strings.capitalize('the quick brown fox'));
+// console.log(numbers.multiply(five, 8));
+// console.log(arrays.lgNum(mixArr));
+// console.log(myFunc(5))
 
 
 // //--------------- Async code-----------------------
@@ -99,4 +99,37 @@ console.log(myFunc(5))
 // // }
 // export default app;
 
-export = newArr;
+// export = newArr;
+
+
+
+//--------------------- Express ------------------->
+
+import express  from "express";
+import routes from './routes/index';
+import logger from "./utilities/logger";
+
+const app = express();
+const port = 3000;
+
+//Define a route handler for the default home page
+// app.use('/api', routes);
+
+app.get('/continents', logger, (req, res) =>{
+    res.send('Continents');
+})
+
+app.get('/countries', logger, (req, res) =>{
+    res.send('countries');
+})
+
+app.get('/continents', (req, res) =>{
+    res.send('Continents');
+})
+
+
+
+//Start the express server
+app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`);
+})

@@ -1,15 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 // Thisis where the test of the main ffile will be written
 // import strings from '../utilities/strings';
 // import numbers from '../utilities/numbers';
 // import arrays from '../utilities/arrays';
 // import myFunc from '../utilities/myFunc';
 // import countries from "../index";
-const index_1 = __importDefault(require("../index"));
+// import newArr from "../index"
 //--------------- Functions testing --------------------.
 // const numArr = [3, 4, 5, 6];
 // const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
@@ -141,12 +137,12 @@ beforeEach(); a
 nd afterEach(); will run before or after each one of the individual specs.
 fdescribe and fit allows jasmine to focus on one specific suite, skipping the others
 xdescribe and xit allows Jasmine to skip a specific suite or test, running all others. */
-describe('newArr should add a new item to the start of array', () => {
-    const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
-    it('should make a new array containing dog', () => {
-        expect((0, index_1.default)(3, wordArr)).toContain('dog');
-    });
-    it('make a new array containing 3', () => {
-        expect((0, index_1.default)(3, wordArr)).toContain(3);
-    });
-});
+// describe('newArr should add a new item to the start of array', () => {
+//    const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
+//    it('should make a new array containing dog', () => {
+//        expect(newArr(3, wordArr)).toContain('dog');
+//    });
+//    it('make a new array containing 3', () => {
+//        expect(newArr(3, wordArr)).toContain(3);
+//    });
+// });

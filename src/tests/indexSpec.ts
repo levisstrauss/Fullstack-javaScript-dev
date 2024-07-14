@@ -4,7 +4,7 @@
 // import arrays from '../utilities/arrays';
 // import myFunc from '../utilities/myFunc';
 // import countries from "../index";
-import newArr from "../index"
+// import newArr from "../index"
 
 
 //--------------- Functions testing --------------------.
@@ -167,13 +167,13 @@ nd afterEach(); will run before or after each one of the individual specs.
 fdescribe and fit allows jasmine to focus on one specific suite, skipping the others
 xdescribe and xit allows Jasmine to skip a specific suite or test, running all others. */
 
-describe('newArr should add a new item to the start of array', () => {
-   const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
+// describe('newArr should add a new item to the start of array', () => {
+//    const wordArr = ['cat', 'dog', 'rabbit', 'bird'];
 
-   it('should make a new array containing dog', () => {
-       expect(newArr(3, wordArr)).toContain('dog');
-   });
-   it('make a new array containing 3', () => {
-       expect(newArr(3, wordArr)).toContain(3);
-   });
-});
+//    it('should make a new array containing dog', () => {
+//        expect(newArr(3, wordArr)).toContain('dog');
+//    });
+//    it('make a new array containing 3', () => {
+//        expect(newArr(3, wordArr)).toContain(3);
+//    });
+// });
