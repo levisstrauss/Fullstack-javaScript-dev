@@ -31,12 +31,12 @@ describe('Tests for array utilities', () => {
         });    
     });
     
-    // describe('function lgNum gets the largest number in array', () => {
-    //     it('should have 6 be largest number', () => {
-    //         expect(arrays.lgNum(numArr)).toEqual(6);
-    //     });
-    //     it('should not have a large number and be falsy', () => {
-    //         expect(arrays.lgNum(wordArr)).toBeFalsy();
-    //     });
-    // });
+    describe('function lgNum gets the largest number in array', () => {
+        it('should have 6 be largest number', () => {
+            expect(arrays.lgNum(numArr)).toEqual(6);
+        });
+        it('should not have a large number and be falsy', () => {
+            expect(arrays.lgNum(wordArr)).toBeFalsy();
+        });
+    });
 });

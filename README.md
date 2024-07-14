@@ -20,13 +20,11 @@ npm i --save-dev eslint-plugin-prettier@4.0.0 // Installed ESLint Prettier Plugi
 
 npm run lint
 
-
 //----------- TypeScript set up --------------->
 $ npm i typescript // save to dependencies
 $ npm i typescript --save-dev // save to devDependencies
 npm i --save-dev ts-node
 npm i --save-dev @types/node
-
 
 
 -------  Test-Driven Development ---------
@@ -40,7 +38,6 @@ Tests fail due to lack of code
 Code is written to make tests pass
 Code is refactored to be most concise and easy to read
 
-
 "scripts": {
     "build": "npx tsc"
   },
@@ -49,7 +46,6 @@ npm run build
 
 --- Configuration ----
 npx tsc --init // Create a tsconfig.json for configuration
-
 
 -------- Jasmine installation ---------------
 
@@ -90,7 +86,6 @@ npm i supertest
 npm i --save-dev @types/supertest
 npm i --save-dev @types/express
 
-
 ├── node_modules
 ├── spec
 │ ├── support
@@ -112,7 +107,6 @@ npm i --save-dev @types/express
 ├── package-lock.json
 ├── package.json
 └── tsconfig.json
-
 
 //------------------- Differents typesmf test ----------------
 
@@ -140,16 +134,15 @@ Endpoint not stored in session history
 Protects user data from being inadvertently exposed
 
 //-------------- New Terms --------------
-Term	Definition
-DELETE	HTTP request that removes data from the server
-GET	HTTP request that retrieves data from the server
-Idempotency	When making multiple identical requests to the API produce the same results each time
-PATCH	HTTP request that updates data on the server
-POST	HTTP request that sends data to the server
-PUT	HTTP request that replaces data on the server
-Query parameter	A key-value pair added to the end of a URL to supply data through the URL that can be used by the application
-Route	The name or path used to access endpoints
-
+Term  Definition
+DELETE  HTTP request that removes data from the server
+GET HTTP request that retrieves data from the server
+Idempotency When making multiple identical requests to the API produce the same results each time
+PATCH HTTP request that updates data on the server
+POST  HTTP request that sends data to the server
+PUT HTTP request that replaces data on the server
+Query parameter A key-value pair added to the end of a URL to supply data through the URL that can be used by the application
+Route The name or path used to access endpoints
 
 //------------- Installation----------------------
  npm i --save-dev nodemon
@@ -162,7 +155,6 @@ Route	The name or path used to access endpoints
 
  CTRL + C to stop the server
 
-
  //------------------------ Middleware --------------------->
 
  - Logging requests to the server
@@ -173,7 +165,6 @@ Route	The name or path used to access endpoints
  - Expresss builtin middleware
  - Third party middleware
  - Custom middleware
-
 
 Using Middleware
 There are two ways of applying middleware:
@@ -217,7 +208,6 @@ const myMiddleware = (req, res, next) => {
   next();
 };
 
-
  //------------------------ Routes  --------------------->
 import express from 'express';   
 const routes = express.Router();
@@ -226,19 +216,16 @@ routes.get('/', (req, res) => { //do something });
 
 export default routes;
 
-
 //------------- files system --------------------->
 import {promises as fsPromises} from fs;
 // or
 import {promises as fs} from fs;
-
 
 r - allows for the reading of a file
 r+ - allows for the reading and writing of a file, will overwrite content in the file
 w+ - allows for the reading and writing of a file, will create a file if it does not yet exist
 a - allows for reading and writing of a file and will append new content to the end of the file, not overwriting current content
 a+ - allows for reading and writing of a file, will create a file if it does not yet exist, and will append new content to the end of the file, not overwriting current content
-
 
 Writing to a File
 .open() - Used to open a file. Takes a filename and flag as arguments.
@@ -254,9 +241,6 @@ const writeData = async () => {
 const writeData = async () => {
   const myFile = await fsPromises.writeFile('myfile.txt', 'add text');
 }
-
-
-
 
 .read() - Used to read a file. The file must be opened first. Allows for reading only a portion of a file, but requires the creation of a buffer to do so. Takes a buffer and options as arguments.
 const readData = async () => {
@@ -277,39 +261,3 @@ const moveData = async () => {
 .mkdir() - Used to make new directories. Takes a directory path as an argument.
 const makeDir = async () => {
   await fsPromises.mkdir('src');
-}
-.unlink() - Used to remove a file. Takes a file path as an argument.
-const removeFile = async () => {
-  await fsPromises.unlink('myFile.txt');
-}
-.rmdir() - Used to remove an empty directory. Takes a directory path as an argument.
-const removeFile = async () => {
-  await fsPromises.rmdir('src');
-}
-
-//------------- csv file --------------->
-npm i csvtojson
-npm i --save-dev @types/csvtojson
-cs()
-
-
-// ------------ Very important to learn WebSocket API -----------
-
-
-//------------ End of the module ---------------
-New Terms in This Lesson
-Term	Definition
-DELETE	HTTP request that removes data from the server
-GET	HTTP request that retrieves data from the server
-GraphQL	A query language used for working with APIs
-Idempotency	When making multiple identical requests to the API produce the same results each time
-Middleware	Functionality that runs between a request to the server and the response from the server
-PATCH	HTTP request that updates data on the server
-POST	HTTP request that sends data to the server
-PUT	HTTP request that replaces data on the server
-Query parameter	A key-value pair added to the end of a URL to supply data through the URL that can be used by the application
-REST	Representational State Transfer, a method for working with data.
-RESTful	Term to describe an API that is implemented following REST principles. Often used interchangeably with REST (e.g. REST/RESTful APIs).
-Route	The name or path used to access endpoints
-Router	Middleware that directs your application to different routes
-Websocket API	A type of stateful API that allows the server to know what the user is doing and vice versa
