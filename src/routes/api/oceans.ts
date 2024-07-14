@@ -3,7 +3,7 @@ import logger from '../../utilities/logger';
 
 const oceans = express.Router();
 
-oceans.get('/oceans', (req, res) => {
+oceans.get('/', (req, res) => {
     res.send('Oceans');
 })
 

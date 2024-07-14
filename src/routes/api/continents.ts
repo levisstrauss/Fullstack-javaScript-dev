@@ -3,7 +3,7 @@ import logger from '../../utilities/logger';
 
 const continents = express.Router();
 
-continents.get('/continents', logger,  (req, res) => {
+continents.get('/', logger,  (req, res) => {
     res.send('Continents');
 })
 

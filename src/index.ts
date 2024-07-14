@@ -106,8 +106,12 @@
 //--------------------- Express ------------------->
 
 import express  from "express";
-import routes from './routes/index';
-import logger from "./utilities/logger";
+// import routes from './routes/index';
+
+import { promises as fsPromises } from 'fs';
+import csv from 'csvtojson';
+import { json } from "stream/consumers";
+
 
 const app = express();
 const port = 3000;
@@ -115,18 +119,32 @@ const port = 3000;
 //Define a route handler for the default home page
 // app.use('/api', routes);
 
-app.get('/continents', logger, (req, res) =>{
-    res.send('Continents');
-})
 
-app.get('/countries', logger, (req, res) =>{
-    res.send('countries');
-})
 
-app.get('/continents', (req, res) =>{
-    res.send('Continents');
-})
+//---- Working with files ------------->
+const inputFile = './users.csv';
+const outputFile = 'users.json';
 
+app.get('/convert', (req, res) => {
+   res.send('converting in process!');
+   csv()
+   .fromFile(inputFile)
+   .then((data) => {
+    let newData = data.map((item: {
+    first_name: string; 
+    last_name: string;
+    phone: string; }) =>{
+        let first = item.first_name;
+        let last = item.last_name;
+        let phone = item.phone;
+        if(item.phone === ""){
+            phone = "missing data";
+        }
+        return {first, last, phone};
+    });
+    fsPromises.writeFile(outputFile, JSON.stringify(newData));
+   });
+});
 
 
 //Start the express server

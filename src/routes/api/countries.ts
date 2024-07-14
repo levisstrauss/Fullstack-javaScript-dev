@@ -3,7 +3,7 @@ import logger from '../../utilities/logger';
 
 const countries = express.Router();
 
-countries.get('/countries', logger,  (req, res) => {
+countries.get('/', logger,  (req, res) => {
     res.send('Countries');
 })
 
