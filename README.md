@@ -61,7 +61,7 @@ npm i --save-dev @types/jasmine
 "jasmine": "jasmine"
 
 // File structure
-
+```bash
 ├── node_modules
 ├── spec
 │      └── support
@@ -75,6 +75,7 @@ npm i --save-dev @types/jasmine
 ├── package-lock.json
 ├── package.json
 └── tsconfig.json
+```
 
 --------- Always -------
 npm run build
@@ -85,7 +86,7 @@ npm run jasmine
 npm i supertest
 npm i --save-dev @types/supertest
 npm i --save-dev @types/express
-
+```bash
 ├── node_modules
 ├── spec
 │ ├── support
@@ -107,7 +108,7 @@ npm i --save-dev @types/express
 ├── package-lock.json
 ├── package.json
 └── tsconfig.json
-
+```
 //------------------- Differents typesmf test ----------------
 
 UI Testing: Does the user interface work as expected?
@@ -119,10 +120,12 @@ Unit Testing: Does the code run as expected?
 
 Idempotency
 Definition:
-“A request is said to be idempotent when making multiple requests to the API that are identical produce the same result.”
+“A request is said to be idempotent when making multiple requests to the API that 
+are identical produce the same result.”
 Idempotency and API Methods:
 The only method not considered idempotent is POST.
-POST adds a new resource each time; on the other hand, GET, DELETE, PATCH, and PUT act on the same resource each time with the same result.
+POST adds a new resource each time; on the other hand, GET, DELETE, PATCH, and PUT 
+act on the same resource each time with the same result.
 Idempotency and Security
 Get:
 Safe because the database doesn’t change
@@ -141,7 +144,8 @@ Idempotency When making multiple identical requests to the API produce the same 
 PATCH HTTP request that updates data on the server
 POST  HTTP request that sends data to the server
 PUT HTTP request that replaces data on the server
-Query parameter A key-value pair added to the end of a URL to supply data through the URL that can be used by the application
+Query parameter A key-value pair added to the end of a URL to supply data through the URL that
+can be used by the application
 Route The name or path used to access endpoints
 
 //------------- Installation----------------------
@@ -170,10 +174,13 @@ Using Middleware
 There are two ways of applying middleware:
 
 Application/route level
-Applies the middleware to an entire application or the entirety of a route on either the entry point application object, or to specific routes (view working with routes).
+Applies the middleware to an entire application or the entirety of a route on either 
+the entry point application object, or to specific routes (view working with routes).
 
 .use();
-The .use(); method is a method that can be applied to the application object or to route objects. It is used for applying middleware and can take in a route, and middleware as arguments
+The .use(); method is a method that can be applied to the application object or to 
+route objects. It is used for applying middleware and can take in a route, and middleware 
+as arguments
 
 app.use(middleware);
 Endpoint level
@@ -196,12 +203,16 @@ List out the middleware
 app.use(cors(), logger); // app level 
 students.get('/', cors(), logger, (req, res) => { // do stuff }); // endpoint level
 Writing Middleware
-Middleware is really just a function that is applied between the request and response. As such, if writing middleware, you create a function.
+Middleware is really just a function that is applied between the request and response. As such,
+if writing middleware, you create a function.
 
-A middleware function takes at least 3 arguments (req, res, next); a 4th is also available of err (err, req, res, next) for use in writing error-handling middleware. Then you write the necessary code to complete your functionality followed by calling the next(); method.
+A middleware function takes at least 3 arguments (req, res, next); a 4th is also available of err 
+(err, req, res, next) for use in writing error-handling middleware. Then you write the necessary
+code to complete your functionality followed by calling the next(); method.
 
 next();
-The next method is a method from the express router. next() calls the next middleware in a chain of middlewares. Without adding next to your middleware function, your application will get stuck on the middleware.
+The next method is a method from the express router. next() calls the next middleware in a chain
+of middlewares. Without adding next to your middleware function, your application will get stuck on the middleware.
 
 const myMiddleware = (req, res, next) => {
   // do stuff
@@ -224,8 +235,10 @@ import {promises as fs} from fs;
 r - allows for the reading of a file
 r+ - allows for the reading and writing of a file, will overwrite content in the file
 w+ - allows for the reading and writing of a file, will create a file if it does not yet exist
-a - allows for reading and writing of a file and will append new content to the end of the file, not overwriting current content
-a+ - allows for reading and writing of a file, will create a file if it does not yet exist, and will append new content to the end of the file, not overwriting current content
+a - allows for reading and writing of a file and will append new content to the end of the file,
+not overwriting current content
+a+ - allows for reading and writing of a file, will create a file if it does not yet exist, and
+will append new content to the end of the file, not overwriting current content
 
 Writing to a File
 .open() - Used to open a file. Takes a filename and flag as arguments.
@@ -237,19 +250,22 @@ const writeData = async () => {
   const myFile = await fsPromises.open('myfile.txt', 'a+');
   await myFile.write('add text');
 }
-.writeFile() - Used to write to a file, overwriting any content that may already exist in the file. Takes a filename, data, and options as arguments.
+.writeFile() - Used to write to a file, overwriting any content that may already exist in the file. 
+Takes a filename, data, and options as arguments.
 const writeData = async () => {
   const myFile = await fsPromises.writeFile('myfile.txt', 'add text');
 }
 
-.read() - Used to read a file. The file must be opened first. Allows for reading only a portion of a file, but requires the creation of a buffer to do so. Takes a buffer and options as arguments.
+.read() - Used to read a file. The file must be opened first. Allows for reading only a portion of 
+a file, but requires the creation of a buffer to do so. Takes a buffer and options as arguments.
 const readData = async () => {
   const buff = new Buffer.alloc(26);
   const myFile = await fsPromises.open('myfile.txt', a+);
   await myFile.read(buff, 0, 26);
   console.log(myFile);
 }
-.readFile() - Used to read the entire contents of a file. Takes a path and options as arguments. Is the preferred method for reading files when the entire content needs to be read.
+.readFile() - Used to read the entire contents of a file. Takes a path and options as arguments. Is 
+the preferred method for reading files when the entire content needs to be read.
 const readData = async () => {
   const myFile = await fsPromises.readFile('myfile.txt', 'utf-8');
   console.log(myFile);
@@ -260,4 +276,4 @@ const moveData = async () => {
 }
 .mkdir() - Used to make new directories. Takes a directory path as an argument.
 const makeDir = async () => {
-  await fsPromises.mkdir('src');
+await fsPromises.mkdir('src');
