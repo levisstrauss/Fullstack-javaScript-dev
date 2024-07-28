@@ -2,25 +2,25 @@ npm init
 npm init -y 
 npm install package-name
 
-//----------- Prettier & Eslint--------------->
+----------- Prettier & Eslint--------------->
 
 npm i --save-dev prettier@2.5.1
 npm i --save-dev eslint@8.8.0
 npm i --save-dev eslint-config-prettier@8.3.0  // Installed ESLint Config Prettier
 npm i --save-dev eslint-plugin-prettier@4.0.0 // Installed ESLint Prettier Plugin
 
-//Created scripts for both prettier and ESLint. Example:
+--- Created scripts for both prettier and ESLint. Example:
 "lint": "eslint 'index.js'",
 "prettier": "prettier --config .prettierrc '*.js' --write"
 
-// example config file, path structure to check, and write fixes 
+--- example config file, path structure to check, and write fixes 
 "prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
 // or
 "prettier": "prettier --config .prettierrc \"src/**/*.js\" --write"
 
 npm run lint
 
-//----------- TypeScript set up --------------->
+----------- TypeScript set up --------------->
 $ npm i typescript // save to dependencies
 $ npm i typescript --save-dev // save to devDependencies
 npm i --save-dev ts-node
@@ -60,7 +60,8 @@ npm i --save-dev @types/jasmine
 // Script
 "jasmine": "jasmine"
 
-// File structure
+
+File structure
 ```bash
 ├── node_modules
 ├── spec
@@ -81,7 +82,7 @@ npm i --save-dev @types/jasmine
 npm run build
 npm run jasmine
 
-//------------- Endpoint testing -------------->
+------------- Endpoint testing -------------->
 
 npm i supertest
 npm i --save-dev @types/supertest
@@ -109,14 +110,14 @@ npm i --save-dev @types/express
 ├── package.json
 └── tsconfig.json
 ```
-//------------------- Differents typesmf test ----------------
+------------------- Differents typesmf test ----------------
 
 UI Testing: Does the user interface work as expected?
 End to End Testing: Does the application work as expected?
 Integration Testing: Do services integrate as expected?
 Unit Testing: Does the code run as expected?
 
-//----------------------- Server Express ----------------------------->
+----------------------- Server Express ----------------------------->
 
 Idempotency
 Definition:
@@ -136,7 +137,7 @@ Post:
 Endpoint not stored in session history
 Protects user data from being inadvertently exposed
 
-//-------------- New Terms --------------
+-------------- New Terms --------------
 Term  Definition
 DELETE  HTTP request that removes data from the server
 GET HTTP request that retrieves data from the server
@@ -148,7 +149,8 @@ Query parameter A key-value pair added to the end of a URL to supply data throug
 can be used by the application
 Route The name or path used to access endpoints
 
-//------------- Installation----------------------
+------------- Installation----------------------
+
  npm i --save-dev nodemon
  npm i express
  npm i --save-dev @types/express
@@ -159,7 +161,7 @@ Route The name or path used to access endpoints
 
  CTRL + C to stop the server
 
- //------------------------ Middleware --------------------->
+ ------------------------ Middleware --------------------->
 
  - Logging requests to the server
  - Checking user privileges
@@ -219,7 +221,7 @@ const myMiddleware = (req, res, next) => {
   next();
 };
 
- //------------------------ Routes  --------------------->
+------------------------ Routes  --------------------->
 import express from 'express';   
 const routes = express.Router();
 
@@ -227,7 +229,7 @@ routes.get('/', (req, res) => { //do something });
 
 export default routes;
 
-//------------- files system --------------------->
+------------- files system --------------------->
 import {promises as fsPromises} from fs;
 // or
 import {promises as fs} from fs;
